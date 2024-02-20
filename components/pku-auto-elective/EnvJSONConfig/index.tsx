@@ -41,7 +41,7 @@ export const EnvJSONConfig = () => {
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
             onFinish={handleSubmit}
-            className='mt-4'
+            className="mt-4"
         >
             <Form.Item label="用户名" name="username" rules={[{ required: true }]}>
                 <Input />
