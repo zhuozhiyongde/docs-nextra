@@ -1,0 +1,10 @@
+{
+    "docs": {
+        "title": "文档",
+        "type": "page"
+    },
+    "index": {
+        "title": "Arthals",
+        "type": "page"
+    }
+}

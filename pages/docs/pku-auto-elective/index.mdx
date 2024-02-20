@@ -1,0 +1,96 @@
+import { Callout, Steps, Card } from 'nextra/components';
+import { UilGithub } from '~components/Icons/GitHub';
+import { EnvJSONConfig } from './components/EnvJSONConfig';
+import { EnvINIConfig } from './components/EnvINIConfig';
+
+# PKU Auto Elective
+
+<Callout type="info" emoji="">
+    2024 Spring Version.
+</Callout>
+
+![Start-Elective](/pku-auto-elective/bark-notification.jpeg)
+
+## 安装使用
+
+<Steps>
+
+### 下载源码
+
+点击下述链接，下载源码 `PKUAutoElective2024Spring.zip`。
+
+<div className="mt-4">
+
+    <Card
+        icon={<UilGithub />}
+        title="PKUAutoElective2024Spring"
+        href="https://mirror.ghproxy.com/https://github.com/zhuozhiyongde/PKUElective2024Spring/archive/refs/heads/main.zip"
+    />
+
+</div>
+
+下载后，解压，得到文件夹 `PKUElective2024Spring`。
+
+### 安装依赖
+
+打开终端，进入文件夹 `PKUElective2024Spring`：
+
+-   macOS 用户：打开 `终端` 应用，输入：
+
+    ```bash filename="Terminal"
+    cd ~/Downloads/PKUElective2024Spring
+    ```
+
+-   Windows 用户：在解压后的文件夹中，右键点击空白处，选择 `进入终端`
+
+然后，输入以下命令，安装依赖：
+
+```bash filename="Terminal"
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+> 如果你的电脑上没有 Python，那么上述指令会报错。
+>
+> 此时，推荐安装 [miniconda](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/)，记得按照日期倒序，选择最新的安装包。
+>
+> 安装过程中如果出现 `Add Anaconda to my PATH environment variable` 类似的选项，**请务必勾选**。
+>
+> 如何验证 Python 安装成功？新打开一个终端，输入以下命令：
+>
+> ```bash filename="Terminal"
+> python --version
+> ```
+>
+> 如果显示类似 `Python 3.11` 的 `3.x` 版本号，说明安装成功。
+
+### 获取 OCR API Key
+
+访问 [TT 识图](http://www.ttshitu.com/) 官网，注册账号，保存账号密码，填入如下表格：
+
+<EnvJSONConfig />
+
+然后点击 `下载`，把下载得到的 `apikey.json` 文件放入 `PKUElective2024Spring` 文件夹。
+
+### 配置选课信息
+
+<EnvINIConfig />
+
+然后点击 `下载`，把下载得到的 `config.ini` 文件放入 `PKUElective2024Spring` 文件夹。
+
+### 运行脚本
+
+如果你只有一个 `config.ini` 配置文件，那只需要在终端输入以下命令，即可运行脚本：
+
+```bash filename="Terminal"
+python main.py
+```
+
+如果你有多个配置文件，比如你还有一个 `config-2.ini`，那么你需要在运行脚本时指定配置文件：
+
+```bash filename="Terminal"
+python main.py -c config-2.ini
+```
+
+保持终端运行（即不要关闭终端），即可自动选课。
+
+</Steps>

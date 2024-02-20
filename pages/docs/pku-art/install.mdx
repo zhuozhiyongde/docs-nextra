@@ -1,0 +1,132 @@
+import { Callout, Steps } from 'nextra/components';
+import { ToGitHub } from '~components/ToGitHub';
+
+# 安装
+
+PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 Safari 与 Chrome(Edge/Arc) 两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript 安装会包含一些 CSS 无法实现的功能（如首页自动隐去课程号等），所以建议大家选择 JavaScript 安装方式。
+
+-   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
+
+    -   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+    -   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887)
+
+-   [Stylish](https://userstyles.org/styles/220453/pku-art)
+
+    -   Chrome/Edge/Arc 需安装浏览器插件 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj)/[Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
+    -   Safari 需安装浏览器插件 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561)（售价 18 ￥）
+
+-   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：同 GreasyFork。
+-   [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：同 Stylish。
+-   [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)：供备份、发布之用。
+
+## 项目地址
+
+<ToGitHub repo="zhuozhiyongde/pku-art" />
+
+## JavaScript 安装
+
+### Safari
+
+<Steps>
+
+### 安装插件
+
+需要在 App Store 安装 [Userscript](https://apps.apple.com/cn/app/userscripts/id1463298887) 插件。
+
+### 获取脚本
+
+安装完成后，访问 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js) ，点击插件图标，应当有`Userscript Detected:Tap to install`字样，点击安装即可。这种安装方式是最推荐的，因为它可以自动检测到我后续的更新。
+
+你也可以访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
+
+除此之外，你也可以通过 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+
+</Steps>
+
+### Chrome/Edge/Arc/Chromium
+
+<Steps>
+
+### 安装插件
+
+需要在 Chrome web store 安装 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) 插件。
+
+### 获取脚本
+
+安装完成后，访问 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js) ，点击安装即可。这种安装方式是最推荐的，因为它可以自动检测到我后续的更新。
+
+你也可以访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+
+除此之外，你还可以通过 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 TamperMonkey 插件中。
+
+</Steps>
+
+## CSS 安装
+
+<Callout type="warning" emoji="⚠️">
+    CSS 安装方式不支持一些 JavaScript 才能实现的功能，如首页自动隐去课程号等。所以不推荐以此法安装。
+</Callout>
+
+### Safari
+
+<Steps>
+
+### 安装插件
+
+需要在 App Store 安装 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561) 应用。
+
+<Callout type="info" emoji="ℹ️">
+    Cascadea 在 App Store 售价 18 ￥，只支持 macOS 平台。
+</Callout>
+
+### 获取样式
+
+安装完成后，打开应用，点击最上面的下载按钮
+
+![Cleanshot-2023-03-01-at-10.35.15@2x.png](https://s2.loli.net/2023/03/01/VJ9cmaW1z7F6B53.png)
+
+然后输入以下网址就可以下载啦：
+
+```text
+https://cdn.arthals.ink/release/PKU-Art.user.css
+```
+
+除此之外，你也可以通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并手动导入到 Cascadea 插件中。
+
+</Steps>
+
+#### Chrome/Edge/Arc/Chromium
+
+<Steps>
+
+### 安装插件
+
+需要在 Chrome web store 安装 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj) 或者 [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) 插件。
+
+<Callout type="warning" emoji="⚠️">
+    Stylish 的收费政策最近有所改变（最多免费使用三个样式）且访问不是很稳定的样子，所以建议安装 xStyle。
+</Callout>
+
+### 获取样式
+
+如果你安装的是 xStyle，那么安装完成后，你需要通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并且手动导入到 xStyle 中，具体操作步骤如下：
+
+> 获得源文件文本 - 复制到剪贴板 - 打开 xStyle 面板 - 点击 `WRITE A NEW STYLE` - 将文本直接拷贝到编辑区 - 在右侧面板中勾选 `Enabled` 并 **取消勾选** `Enable less complier`
+
+如果你安装的是 Stylish，那么安装完成后，你同样可以访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，然后点击 Install Style 即可。
+
+</Steps>
+
+### CSS 和 JavaScript 安装方式的异同
+
+两者主要功能都是通过不同手段将我写的 CSS 样式附加到你的页面上，但添加手段上存在如下差异：
+
+-   CSS 安装方式会直接通过插件，将你本地的样式通过在页面末附加 `<style>` 标签来引入本地样式。
+
+-   JavaScript 安装方式会通过插件，实时获得你的页面 URL，并且根据正则匹配页面 URL，动态引入我部署在 CDN 上的 CSS 文件，其具体引入方式是通过在页面末附加 `<link>` 标签来引入外部样式。
+
+说人话就是，CSS 安装方式会直接将你下载好的样式引入，而 JavaScript 安装方式会通过请求我 CDN 上的文件来引入，虽然浏览器有缓存策略，但是可能还是会存在一定的延迟，这可能会导致“页面闪烁”的问题出现。但 CSS 安装方式不会导致此问题。
+
+除此之外，两者还具有以下功能上的差异：
+
+-   JavaScript 安装方式会引入一些除了附加 CSS 之外的功能，这部分功能无法仅通过 CSS 实现，如避免侧边栏收起问题。

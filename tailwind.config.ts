@@ -2,9 +2,10 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,md,mdx}',
+    './components/**/*.{js,ts,jsx,md,tsx}',
+    "./sapp/**/*.{js,ts,jsx,tsx,md,mdx}",
+    "./theme.config.tsx"
   ],
   theme: {
     extend: {
@@ -16,5 +17,9 @@ const config: Config = {
     },
   },
   plugins: [],
+  darkMode: "class",
+  // corePlugins: {
+  //   preflight: false,
+  // }
 };
 export default config;

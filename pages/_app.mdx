@@ -1,0 +1,44 @@
+import '../public/style.css';
+import { ConfigProvider, theme } from 'antd';
+import { useEffect, useState } from 'react';
+
+export default function App({ Component, pageProps }) {
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        const checkDarkMode = () => {
+            const htmlStyle = document.querySelector('html').getAttribute('style');
+            if (htmlStyle && htmlStyle.includes('color-scheme: dark')) {
+                setIsDarkMode(true);
+            } else {
+                setIsDarkMode(false);
+            }
+        };
+
+        // 首次检查
+        checkDarkMode();
+
+        // 创建一个观察器实例并传入回调函数
+        const observer = new MutationObserver(checkDarkMode);
+
+        // 配置观察选项:
+        const config = { attributes: true, childList: false, subtree: false, attributeFilter: ['style'] };
+
+        // 传入目标节点, 以及观察选项
+        observer.observe(document.querySelector('html'), config);
+
+        // 确保在组件卸载时断开观察器
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <ConfigProvider
+            theme={{
+                algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
+            }}
+        >
+            <Component {...pageProps} />
+        </ConfigProvider>
+    );
+
+}
