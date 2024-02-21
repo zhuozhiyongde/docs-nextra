@@ -227,13 +227,11 @@ export const EnvINIConfig = () => {
         }
         setConfig((prevConfig) => ({
             ...prevConfig,
-            [`course:${newCourseId}`]: [
-                {
-                    name: '',
-                    class: 0,
-                    school: '',
-                },
-            ],
+            [`course:${newCourseId}`]: {
+                name: '',
+                class: 0,
+                school: '',
+            },
         }));
         setNewCourseId('');
     };
@@ -290,11 +288,13 @@ export const EnvINIConfig = () => {
             // 返回新对象触发重新渲染
             return newConfig;
         });
+        console.log(config);
     };
 
     const handleSubmit = () => {
         // 对于 config 的每个类似于 'mutex:xxx' 的 key，将其 courses 数组转换为字符串
         const newConfig = { ...config };
+        console.log(newConfig);
         // 删除 config.name 项
         delete newConfig.config_name;
         for (const key in config) {
@@ -327,9 +327,11 @@ export const EnvINIConfig = () => {
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
         >
-            <Form.Item name="config_name" label="配置文件名" rules={[{ required: true }]} className="mt-4">
-                <p className="mb-1 mx-2 dark:text-gray-200 text-gray-800 opacity-50">以 .ini 结尾，不要含有空格</p>
+            <Form.Item name={['config_name']} label="配置文件名" rules={[{ required: true }]} className="mt-4 mb-2">
                 <Input />
+            </Form.Item>
+            <Form.Item>
+                <p className="mb-2 mx-2 dark:text-gray-200 text-gray-800 opacity-50">以 .ini 结尾，不要含有空格</p>
             </Form.Item>
             <Divider orientation="left">User</Divider>
             <Form.Item name={['user', 'student_id']} label="学号" rules={[{ required: true }]}>
@@ -354,16 +356,25 @@ export const EnvINIConfig = () => {
             </Form.Item>
 
             <Divider orientation="left">Client</Divider>
-            <Form.Item name={['client', 'supply_cancel_page']} label="刷取页面" rules={[{ required: true }]}>
-                <p className="mb-1 mx-2 dark:text-gray-200 text-gray-800 opacity-50">
+            <Form.Item
+                name={['client', 'supply_cancel_page']}
+                label="刷取页面"
+                rules={[{ required: true }]}
+                className="mb-2"
+            >
+                <InputNumber min={1} className="w-full" />
+            </Form.Item>
+
+            <Form.Item className="mb-2">
+                <p className="mx-2 dark:text-gray-200 text-gray-800 opacity-50">
                     所需选课的课程在“补退选”的第几页
                     <br />
                     如果有多页，请使用多个配置配置文件
                 </p>
-                <Space direction="vertical" className="w-full">
-                    <InputNumber min={1} className="w-full" />
-                    <ClientCollapse />
-                </Space>
+            </Form.Item>
+
+            <Form.Item>
+                <ClientCollapse />
             </Form.Item>
 
             <Divider orientation="left">Monitor</Divider>
@@ -397,7 +408,7 @@ export const EnvINIConfig = () => {
                 />
             </Form.Item>
 
-            <Divider orientation="left">Notification</Divider>
+            <Divider orientation="left">Notification (iOS Only)</Divider>
             <Form.Item name={['notification', 'disable_push']} valuePropName="checked">
                 <Checkbox>禁用推送通知</Checkbox>
             </Form.Item>
@@ -423,13 +434,16 @@ export const EnvINIConfig = () => {
                     name={['notification', 'minimum_interval']}
                     label="推送通知最小间隔"
                     rules={[{ required: !config.notification.disable_push }]}
+                    className="mb-2"
                 >
+                    <InputNumber min={-1} className="w-full" />
+                </Form.Item>
+                <Form.Item className="mb-2">
                     <p className="mb-1 mx-2 dark:text-gray-200 text-gray-800 opacity-50">
                         消息时间间隔，单位为秒
                         <br />
                         若消息产生时，距离上次成功发送不足这一时间，则取消发送。-1为不设置
                     </p>
-                    <InputNumber min={-1} className="w-full" />
                 </Form.Item>
             </Form.Item>
 
